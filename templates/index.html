@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="text-align: center;">{% block title %}Hello {% endblock %}</h1>
+    {% for to_do in to_dos %}
+        <div class='to_do'>
+            <h3>{{to_do ['title'] }}</h3>
+            <p>{{ to_do['content'] }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
