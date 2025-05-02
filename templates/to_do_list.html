@@ -1,23 +1,11 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
 
 {% block content %}
-    <h1 style="text-align: center;">{% block title %} To do list {% endblock %}</h1>
-    <form method="post">
-        <label for="title">To do list</label>
-        <br>
-        <input type="text" name="title"
-               placeholder="Daily/Weekly/Monthly"
-               value="{{ request.form['title'] }}"></input>
-        <br>
-
-        <label for="content">My to do lists</label>
-        <br>
-        <textarea name="content"
-                  placeholder="My to do lists"
-                  rows="15"
-                  cols="60"
-                  >{{ request.form['content'] }}</textarea>
-        <br>
-        <button type="submit" style="color: rgb(234, 60, 219);">Submit</button>
-    </form>
+    <h1 style="text-align: center;">{% block title %}Lists of your To Do Lists {% endblock %}</h1>
+    {% for to_do in to_dos %}
+        <div class='to_do'>
+            <h3>{{to_do ['title'] }}</h3>
+            <p>{{ to_do['content'] }}</p>
+        </div>
+    {% endfor %}
 {% endblock %}
